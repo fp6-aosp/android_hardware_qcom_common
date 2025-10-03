@@ -127,3 +127,7 @@ PRODUCT_PACKAGES += \
     rfs_msm_wpss_readonly_vendor_firmware_symlink \
     rfs_msm_wpss_readwrite_symlink \
     rfs_msm_wpss_shared_symlink
+
+# WiFi
+PRODUCT_CFI_INCLUDE_PATHS += \
+    hardware/qcom-caf/wlan/qcwcn/wpa_supplicant_8_lib
