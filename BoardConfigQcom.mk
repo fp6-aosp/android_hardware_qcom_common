@@ -402,6 +402,13 @@ ifeq ($(BOARD_SUPPORTS_OPENSOURCE_STHAL),true)
     endif
 endif
 
+# SELinux
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
+    hardware/qcom/common/sepolicy/public
+
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
+    hardware/qcom/common/sepolicy/private
+
 # Verified Boot
 BOARD_AVB_SYSTEM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 BOARD_AVB_SYSTEM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
