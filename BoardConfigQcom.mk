@@ -389,19 +389,6 @@ else
     $(call soong_config_set,qtidisplay,headers_namespace,$(QCOM_SOONG_NAMESPACE)/display)
 endif
 
-# Add sound trigger HAL to PRODUCT_SOONG_NAMESPACES if needed
-ifeq ($(BOARD_SUPPORTS_OPENSOURCE_STHAL),true)
-    ifeq ($(filter $(LEGACY_UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-        ifneq ($(filter $(UM_5_10_FAMILY) $(UM_5_15_FAMILY) $(UM_6_1_FAMILY),$(TARGET_BOARD_PLATFORM)),)
-            $(call soong_config_set,qtiaudio,legacy_headers_namespace,$(QCOM_SOONG_NAMESPACE))
-            $(call soong_config_set,qtiaudio,legacy_libarpal_namespace,$(QCOM_SOONG_NAMESPACE))
-        else
-            $(call soong_config_set,qtiaudio,headers_namespace,$(QCOM_SOONG_NAMESPACE))
-            $(call soong_config_set,qtiaudio,libarpal_namespace,$(QCOM_SOONG_NAMESPACE))
-        endif
-    endif
-endif
-
 # SELinux
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
     hardware/qcom/common/sepolicy/public
